@@ -1,0 +1,176 @@
+=== System Information ===
+platform: Linux
+platform_release: 6.8.0
+platform_version: #1 SMP PREEMPT_DYNAMIC Thu Jun  5 16:16:16 MDT 2025
+architecture: x86_64
+hostname: devbox
+processor: x86_64
+ram: 8 GB
+
+=== Environment Variables ===
+SHELL: /bin/bash
+TERM_PROGRAM_VERSION: 3.4
+TMUX: /tmp/tmux-1001/default,1300,0
+PWD: /app
+LOGNAME: swebot
+XDG_SESSION_TYPE: tty
+HOME: /home/swebot
+LANG: C.UTF-8
+LS_COLORS: rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
+SSH_CONNECTION: 192.168.0.1 34750 192.168.0.2 22
+LESSCLOSE: /usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS: user
+TERM: tmux-256color
+LESSOPEN: | /usr/bin/lesspipe %s
+USER: swebot
+TMUX_PANE: %0
+SHLVL: 2
+XDG_SESSION_ID: c1
+XDG_RUNTIME_DIR: /run/user/1001
+SSH_CLIENT: 192.168.0.1 34750 22
+PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+DBUS_SESSION_BUS_ADDRESS: unix:path=/run/user/1001/bus
+TERM_PROGRAM: tmux
+_: /usr/local/bin/python
+
+=== Filesystem Paths ===
+(Total paths: 139)
+/app/my_custom_output.txt
+/app/system_info_collector.py
+/app/system_output.txt
+/app/.git
+/app/.git/description
+/app/.git/ORIG_HEAD
+/app/.git/index
+/app/.git/COMMIT_EDITMSG
+/app/.git/HEAD
+/app/.git/config
+/app/.git/hooks
+/app/.git/objects
+/app/.git/logs
+/app/.git/info
+/app/.git/refs
+/app/.git/hooks/pre-receive.sample
+/app/.git/hooks/pre-applypatch.sample
+/app/.git/hooks/update.sample
+/app/.git/hooks/pre-merge-commit.sample
+/app/.git/hooks/pre-commit.sample
+/app/.git/hooks/pre-push.sample
+/app/.git/hooks/fsmonitor-watchman.sample
+/app/.git/hooks/applypatch-msg.sample
+/app/.git/hooks/prepare-commit-msg.sample
+/app/.git/hooks/sendemail-validate.sample
+/app/.git/hooks/pre-rebase.sample
+/app/.git/hooks/commit-msg.sample
+/app/.git/hooks/push-to-checkout.sample
+/app/.git/hooks/post-update.sample
+/app/.git/objects/pack
+/app/.git/objects/b2
+/app/.git/objects/fc
+/app/.git/objects/6c
+/app/.git/objects/1f
+/app/.git/objects/3c
+/app/.git/objects/58
+/app/.git/objects/05
+/app/.git/objects/93
+/app/.git/objects/94
+/app/.git/objects/30
+/app/.git/objects/5e
+/app/.git/objects/40
+/app/.git/objects/f9
+/app/.git/objects/d1
+/app/.git/objects/9b
+/app/.git/objects/55
+/app/.git/objects/80
+/app/.git/objects/3e
+/app/.git/objects/0f
+/app/.git/objects/83
+/app/.git/objects/e5
+/app/.git/objects/ee
+/app/.git/objects/8a
+/app/.git/objects/d7
+/app/.git/objects/3f
+/app/.git/objects/e4
+/app/.git/objects/5a
+/app/.git/objects/d3
+/app/.git/objects/45
+/app/.git/objects/e6
+/app/.git/objects/02
+/app/.git/objects/c3
+/app/.git/objects/af
+/app/.git/objects/8b
+/app/.git/objects/ef
+/app/.git/objects/0a
+/app/.git/objects/92
+/app/.git/objects/ca
+/app/.git/objects/b8
+/app/.git/objects/e0
+/app/.git/objects/5f
+/app/.git/objects/1b
+/app/.git/objects/info
+/app/.git/objects/0c
+/app/.git/objects/85
+/app/.git/objects/97
+/app/.git/objects/4b
+/app/.git/objects/b2/d2d4f751c424b8f63f35bc001199cbd3274364
+/app/.git/objects/fc/fd81bf6aa1ff011f56f8d9025cb6af8b940825
+/app/.git/objects/6c/3d912c476cf74bf616dd63b0aa8ae22897c4c3
+/app/.git/objects/1f/7ac8732f69a3134d12e1d13b631fb26d96a47e
+/app/.git/objects/3c/6be2e84c02ad7aafdbe777fbde4ff112e581b1
+/app/.git/objects/3c/70cb5cba5333e246f3aab8c0e66af6b3634f1c
+/app/.git/objects/3c/b6c7b1fb84060edbdcfcc05d7fc0a88ea04d26
+/app/.git/objects/58/57fa0c8419c9b7fa9f0194d534b1c3626db360
+/app/.git/objects/05/dcdd895b6bd734640e34104357f1a96ce2c9c2
+/app/.git/objects/93/0f94b96cac4888db90ddf3eddc6e90eb81303c
+/app/.git/objects/93/7ccdd920172da6b539c7c857b4ae6a5983dd57
+/app/.git/objects/94/256fd39727b04d7f0833548f7d93d3b053714c
+/app/.git/objects/30/1bb628c206713a08c993192b39c77d9563351a
+/app/.git/objects/5e/935af3c6dd72f88d30cbd4691dd97b8aa78f35
+/app/.git/objects/5e/98ca9c0d6ffe509c46505dcca37702bf2c7ba8
+/app/.git/objects/40/5ce27449ccb9e8cc482f2f2e59d00aea8800d0
+/app/.git/objects/40/033086a0ab49c458a152956bcb976f64efa5df
+/app/.git/objects/f9/1122d51d7d148a4d35fa5d493bbb416132ad7b
+/app/.git/objects/d1/a8a3723dfb95a528b09d15e1906d62ce2d4852
+/app/.git/objects/9b/d7f4dc4863c6eefaa18f2ef848b31073461189
+/app/.git/objects/55/c1a628f4dfa3e4e54d1a06507b20264b3a1f3b
+/app/.git/objects/80/2904eb4fe4fcde2de7d9ca90dd01443e8fdf0c
+/app/.git/objects/3e/815e9430ee5a23b92fb37884d2cc98abd1379e
+/app/.git/objects/0f/5f85a5237028f4b649fbbbc422ba4fc0976864
+/app/.git/objects/83/f8e699ed103f5264fbcccb76bfecfc7453c4a0
+/app/.git/objects/e5/79ac689b20646367dbb7ba6bd728e8d88095e8
+/app/.git/objects/ee/c2b978e7d5b3549242d08d36257778c60f68f6
+/app/.git/objects/8a/0ee34cc7ae74f5b272a5f01f561400b040006a
+/app/.git/objects/d7/9436577d20233a6fcd4370c0c7b4b7f0155be7
+/app/.git/objects/3f/2b98fec1b34a548b47e9628ad58690e7904b75
+/app/.git/objects/e4/1e1f61cdb3b2a91decb6fbfc1c781b0ba9b132
+/app/.git/objects/5a/da0dc90d74b5b3c2aeffdb4fd35cefa0704c7f
+/app/.git/objects/5a/c43638ce01d040241b03abf88684ef1f3f0326
+/app/.git/objects/d3/b7afd6c0ef066a293eea76e5ec6cd1f6caeaad
+/app/.git/objects/45/a528ea2333743112f2a67c417439f9f9d961cc
+/app/.git/objects/e6/e7c0016b729fa03e7a9d5351ea4d4b33d69b1f
+/app/.git/objects/02/1582d275466441708ead254264d14d33e2c20a
+/app/.git/objects/c3/ad7f76488d7e593dfe555113121b6703bba4d8
+/app/.git/objects/af/c72f5b2240046ffe8d46362f69818a9090ea1f
+/app/.git/objects/af/47c4db0cfb79bc17ddaece15c84c2fa54d1b63
+/app/.git/objects/8b/e49b6871cfcd07075a7f76c9ae7c2f0310c6f0
+/app/.git/objects/ef/a7e79a874b4a63bae84dd504cbdba065ac0622
+/app/.git/objects/0a/d6f49aabe5ee3ff722c128a6009f9d5bb8a483
+/app/.git/objects/92/74e86ea6b237f8ce603396e573df90f071a4f9
+/app/.git/objects/ca/d4a49de5ae03d182d57038cdb84537759a40fe
+/app/.git/objects/b8/1ec543663f53cda74a9c47829e83d4effdd5d9
+/app/.git/objects/e0/b00d34bbebcd37745bde61a4d002ba3c13a3cc
+/app/.git/objects/5f/42641d6197440eaac85182b82b81d4b37f8d6d
+/app/.git/objects/1b/495f0c96f44f64e7a3a05bc2ad0fc886a03d5c
+/app/.git/objects/0c/f759fd86846da7644097e72731d1a05a814b30
+/app/.git/objects/0c/2be9c7da633932574862d56566670d6713ece7
+/app/.git/objects/85/2dfe546b3635977ee0f88815f4b8dd1a217f0b
+/app/.git/objects/97/5f4f4abba368afa09c6327cbc303b0174e5f04
+/app/.git/objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904
+/app/.git/logs/HEAD
+/app/.git/logs/refs
+/app/.git/logs/refs/heads
+/app/.git/logs/refs/heads/main
+/app/.git/info/exclude
+/app/.git/refs/heads
+/app/.git/refs/tags
+/app/.git/refs/heads/main
