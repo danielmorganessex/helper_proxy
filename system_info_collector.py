@@ -21,22 +21,25 @@ def _handle_walk_error(err):
     """Error handler for os.walk, prints to stderr and continues."""
     print(f"PermissionError accessing: {err.filename}. Skipping.", file=sys.stderr)
 
-def get_filesystem_info(start_path="/"):
-    """Traverses the filesystem from the start_path and collects all file and directory paths."""
+def get_filesystem_info(start_paths=None):
+    """Traverses the filesystem from the specified start_paths and collects all file and directory paths."""
+    if start_paths is None:
+        start_paths = ["/"]
     all_paths = []
-    for root, dirs, files in os.walk(start_path, onerror=_handle_walk_error):
-        for name in files:
-            try:
-                path = os.path.join(root, name)
-                all_paths.append(path)
-            except Exception as e: # Catch potential errors from os.path.join itself, though rare
-                print(f"Error joining path ({root}, {name}): {e}", file=sys.stderr)
-        for name in dirs:
-            try:
-                path = os.path.join(root, name)
-                all_paths.append(path)
-            except Exception as e:
-                print(f"Error joining path ({root}, {name}): {e}", file=sys.stderr)
+    for start_path in start_paths:
+        for root, dirs, files in os.walk(start_path, onerror=_handle_walk_error):
+            for name in files:
+                try:
+                    path = os.path.join(root, name)
+                    all_paths.append(path)
+                except Exception as e: # Catch potential errors from os.path.join itself, though rare
+                    print(f"Error joining path ({root}, {name}): {e}", file=sys.stderr)
+            for name in dirs:
+                try:
+                    path = os.path.join(root, name)
+                    all_paths.append(path)
+                except Exception as e:
+                    print(f"Error joining path ({root}, {name}): {e}", file=sys.stderr)
     return all_paths
 
 def get_environment_variables():
@@ -76,15 +79,18 @@ def save_data_to_file(filepath, system_info_data, env_vars_data, filesystem_data
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Collects system information and saves it to a specified file.")
     parser.add_argument("output_filepath", help="Path to the output file where information will be saved.")
-    parser.add_argument("--start_path", default="/", help="The starting path for filesystem traversal (e.g., /app, /usr). Defaults to '/'.")
+    parser.add_argument("--start_path", default="/", help="Comma-separated list of starting paths for filesystem traversal (e.g., /app,/usr). Defaults to '/'.")
     args = parser.parse_args()
+
+    # Split the start_path argument into a list
+    start_paths_list = [path.strip() for path in args.start_path.split(',')]
 
     # Collect all data
     system_info_data = get_system_info()
     environment_vars_data = get_environment_variables()
 
-    print(f"Starting filesystem traversal from '{args.start_path}'. This may take some time and report permission errors...", file=sys.stderr)
-    filesystem_paths_data = get_filesystem_info(args.start_path)
+    print(f"Starting filesystem traversal from '{', '.join(start_paths_list)}'. This may take some time and report permission errors...", file=sys.stderr)
+    filesystem_paths_data = get_filesystem_info(start_paths_list)
     print("Filesystem traversal complete.", file=sys.stderr)
 
     # Print basic system info to console
@@ -94,5 +100,5 @@ if __name__ == "__main__":
     # Save all collected data to a file (filename from command line)
     save_data_to_file(args.output_filepath, system_info_data, environment_vars_data, filesystem_paths_data)
     print(f"\nAll collected data saved to {args.output_filepath}")
-    print(f"Total filesystem paths collected from '{args.start_path}': {len(filesystem_paths_data)}")
+    print(f"Total filesystem paths collected from '{', '.join(start_paths_list)}': {len(filesystem_paths_data)}")
     print(f"Total environment variables collected: {len(environment_vars_data)}")

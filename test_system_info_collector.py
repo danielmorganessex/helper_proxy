@@ -1,6 +1,8 @@
 import subprocess
 import os
 import sys
+import tempfile
+import shutil
 
 # Use the same Python interpreter for the subprocess that is running this test script
 PYTHON_EXECUTABLE = sys.executable
@@ -57,8 +59,8 @@ def test_content_verification():
     print("Running Test 2: Content verification...")
     cleanup_test_file() # Ensure no old file exists
 
-    # Using /app as start_path for faster execution and manageable output
-    result = run_main_script(TEST_OUTPUT_FILENAME, start_path="/app")
+    # Using "." (current directory) as start_path for faster execution and manageable output
+    result = run_main_script(TEST_OUTPUT_FILENAME, start_path=".")
 
     assert result.returncode == 0, f"Script exited with {result.returncode}, expected 0 (for content test run)."
 
@@ -93,10 +95,75 @@ def test_content_verification():
     print(f"  Cleaned up '{TEST_OUTPUT_FILENAME}'.")
     print("Test 2 PASSED.\n")
 
+def test_multiple_start_paths():
+    """
+    Test 3: Multiple start paths functionality.
+    - Creates temporary directories and unique files within them.
+    - Runs system_info_collector.py with --start_path set to these directories.
+    - Verifies script success and checks if unique files are listed in the output.
+    - Cleans up temporary directories and the output file.
+    """
+    print("Running Test 3: Multiple start paths...")
+    cleanup_test_file()
+
+    # Create temporary directories for testing multiple paths
+    with tempfile.TemporaryDirectory() as tmpdir1, tempfile.TemporaryDirectory() as tmpdir2:
+        # Create unique files in each directory
+        file_in_tmpdir1_abs = os.path.join(tmpdir1, "fileA_in_tmp1.txt")
+        file_in_tmpdir2_abs = os.path.join(tmpdir2, "fileB_in_tmp2.txt")
+
+        with open(file_in_tmpdir1_abs, "w") as f:
+            f.write("Test content for file A")
+        with open(file_in_tmpdir2_abs, "w") as f:
+            f.write("Test content for file B")
+
+        # Construct the comma-separated start_path argument
+        multiple_start_paths = f"{tmpdir1},{tmpdir2}"
+
+        result = run_main_script(TEST_OUTPUT_FILENAME, start_path=multiple_start_paths)
+
+        print(f"  stdout:\n{result.stdout}")
+        print(f"  stderr:\n{result.stderr}")
+
+        assert result.returncode == 0, f"Script exited with {result.returncode}, expected 0 for multiple paths test."
+        print("  Asserted: Script exited with code 0.")
+
+        assert os.path.exists(TEST_OUTPUT_FILENAME), f"Output file '{TEST_OUTPUT_FILENAME}' was not created for multiple paths test."
+        print(f"  Asserted: Output file '{TEST_OUTPUT_FILENAME}' created.")
+
+        content = ""
+        with open(TEST_OUTPUT_FILENAME, 'r') as f:
+            content = f.read()
+
+        # Verify that the unique file paths are present in the "Filesystem Paths" section
+        # We need to find the section first.
+        filesystem_section_header = "=== Filesystem Paths ==="
+        assert filesystem_section_header in content, f"'{filesystem_section_header}' not found in output."
+
+        # Normalize paths for comparison, especially on Windows
+        normalized_content = content.replace("\\", "/")
+        normalized_file_in_tmpdir1 = file_in_tmpdir1_abs.replace("\\", "/")
+        normalized_file_in_tmpdir2 = file_in_tmpdir2_abs.replace("\\", "/")
+
+        # Check if the paths are present in the content after the header
+        filesystem_paths_text = normalized_content.split(filesystem_section_header, 1)[1]
+
+        assert normalized_file_in_tmpdir1 in filesystem_paths_text, f"Path '{file_in_tmpdir1_abs}' (normalized: {normalized_file_in_tmpdir1}) not found in filesystem paths output."
+        print(f"  Asserted: Path '{file_in_tmpdir1_abs}' found.")
+        assert normalized_file_in_tmpdir2 in filesystem_paths_text, f"Path '{file_in_tmpdir2_abs}' (normalized: {normalized_file_in_tmpdir2}) not found in filesystem paths output."
+        print(f"  Asserted: Path '{file_in_tmpdir2_abs}' found.")
+
+    # Temporary directories are cleaned up automatically by TemporaryDirectory context manager
+    cleanup_test_file()
+    print(f"  Cleaned up '{TEST_OUTPUT_FILENAME}'. Temporary directories also cleaned up.")
+    print("Test 3 PASSED.\n")
+
+
 if __name__ == "__main__":
     try:
         test_successful_execution_and_file_creation()
         test_content_verification()
+        test_multiple_start_paths()
         print("All tests PASSED successfully!")
     except AssertionError as e:
         print(f"TEST FAILED: {e}", file=sys.stderr)
