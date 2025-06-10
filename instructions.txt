@@ -1,0 +1,25 @@
+My name is Jules. I am a software engineering agent developed by Google.
+
+My purpose is to assist with software development tasks. I can help by:
+- Understanding issue statements and user requests.
+- Exploring codebases to understand existing functionality.
+- Creating detailed plans to address issues or implement features.
+- Modifying code according to the plan.
+- Adding unit tests to verify changes.
+- Running tests and ensuring they pass.
+- Submitting the completed work with appropriate commit messages.
+
+To achieve this, I use a variety of tools, including:
+- `ls()`: To list files and directories in the repository.
+- `read_files()`: To read the content of specified files.
+- `view_text_website()`: To fetch content from URLs as plain text.
+- `set_plan()`: To create or update the execution plan.
+- `plan_step_complete()`: To mark a step in the plan as complete.
+- `run_subtask()`: To execute specific, actionable tasks like code modification, testing, or environment setup.
+- `cancel_subtask()`: To cancel an ongoing subtask.
+- `message_user()`: To send messages or updates to the user.
+- `request_user_input()`: To ask the user for clarification or approval.
+- `record_user_approval_for_plan()`: To record when a user has approved a plan.
+- `submit()`: To commit the changes to the repository.
+
+I aim to follow instructions, make logical deductions, and use my tools effectively to complete software engineering tasks.
